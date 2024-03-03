@@ -1,4 +1,4 @@
- const findMinimum = arr => {
+/*  const findMinimum = arr => {
 
   // Your code here
   let min = arr[0]; // O(1)
@@ -13,7 +13,7 @@
 };
 
 const arr = [7, 5, 2, 3, 4, 1];
-console.log(findMinimum(arr));
+console.log(findMinimum(arr)); */
 // Output => 1.
 /*
 Time complexity: O(n) The function iterates through the array once to find the
@@ -23,7 +23,7 @@ regardless of the input array' size.
  */
 
 
-const runningSum = arr => {
+/* const runningSum = arr => {
 
   // Your code here
   // Initializes an empty arr to store the running sum.
@@ -41,7 +41,7 @@ const runningSum = arr => {
 };
 
 const arr = [1, 2, 3, 4];
-console.log(runningSum(arr));
+console.log(runningSum(arr)); */
 
 // [ 1, 3, 6, 10 ]
 
@@ -55,7 +55,7 @@ arr' size, therefore the space complexity is also linear.
 */
 
 
-const evenNumOfChars = arr => {
+/* const evenNumOfChars = arr => {
 
   // Your code here
   // Initialization the count of strings with even characters
@@ -72,7 +72,7 @@ const evenNumOfChars = arr => {
 };
 
 const arr = ['ab', 'abc', 'a', 'abcd'];
-console.log(evenNumOfChars(arr));
+console.log(evenNumOfChars(arr)); */
 // Output: => 2
 /*
 Time complexity: O(n) Linear time.
@@ -84,7 +84,7 @@ The function uses only a few local var count & the loop index.
 
 */
 
-const smallerThanCurr = arr => {
+/* const smallerThanCurr = arr => {
 
   // Your code here
   // sort a copy of the orig arr
@@ -104,7 +104,7 @@ const smallerThanCurr = arr => {
 };
 
 const arr = [8, 1, 2, 2, 3];
-console.log(smallerThanCurr(arr));
+console.log(smallerThanCurr(arr)); */
 
 // Output: => [ 4, 0, 1, 1, 3 ]
 
@@ -118,7 +118,7 @@ Space Complexity: O(n)
 */
 
 
-const twoSum = (arr, target) => {
+/* const twoSum = (arr, target) => {
 
   // Your code here
   //set to store seen #'s
@@ -144,7 +144,7 @@ const arr = [4, 2, 3, 6, 9];
 console.log(twoSum(arr, 10));
 
 const arr2 = [4, 2, 3, 6, 9];
-console.log(twoSum(arr2, 16));
+console.log(twoSum(arr2, 16)); */
 //Output:
 
 /*
@@ -158,7 +158,7 @@ the function sets "numSet" to store seen #'s, the size of the set is at most the
 */
 
 
-const secondLargest = arr => {
+/* const secondLargest = arr => {
 
   // Your code here
   if (arr.length < 2) {
@@ -184,7 +184,7 @@ const secondLargest = arr => {
 };
 
 const arr = [4, 2, 3, 6, 8];
-console.log(secondLargest(arr));
+console.log(secondLargest(arr)); */
 //Output: => 6
 
 /*
@@ -194,16 +194,40 @@ Space complexity: O(1) Constant time.
 */
 
 
-
-
-
-
-
-
 const shuffle = (arr) => {
 
   // Your code here
+  // original arr to avoid mutation
+  const shuffleArr = [...arr];
+
+  //
+  for (let i = shuffleArr.length - 1; i > 0; i--) {
+
+    //create a random i btwn 0 & i
+    const randomIndex = Math.floor(Math.random() * (i + 1));
+
+    // swap elements @ randomIndx & i
+    [shuffleArr[i], shuffleArr[randomIndex]] = [shuffleArr[randomIndex], shuffleArr[i]];
+  }
+
+  return shuffleArr;
 };
 
+const arr = [2, 5, 1, 3, 4, 7];
+console.log(shuffle(arr));
+// Output: => [ 7, 1, 2, 4, 3, 5 ]
 
-module.exports = [findMinimum, runningSum, evenNumOfChars, smallerThanCurr, twoSum, secondLargest, shuffle];
+/*
+Time complexity: O(n) Linear time
+The loop iterates through the entire arr once, so the time complexity is O(n),
+where n is the length of the arr.
+Space complexity: O(n) Linear time.
+with the creation of a new shuffledArr, so the space complexity is O(n) linear space.
+
+*/
+
+
+
+module.exports = [shuffle];
+
+// findMinimum, runningSum, evenNumOfChars, smallerThanCurr, twoSum, secondLargest,
