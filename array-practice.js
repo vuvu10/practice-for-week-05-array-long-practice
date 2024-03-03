@@ -1,4 +1,4 @@
-/* const findMinimum = arr => {
+const findMinimum = arr => {
 
   // Your code here
   let min = arr[0]; // O(1)
@@ -13,7 +13,7 @@
 };
 
 const arr = [7, 5, 2, 3, 4, 1];
-console.log(findMinimum(arr)); */
+console.log(findMinimum(arr));
 // Output => 1.
 /*
 Time complexity: O(n) The function iterates through the array once to find the
@@ -23,7 +23,7 @@ regardless of the input array' size.
  */
 
 
-/* const runningSum = arr => {
+const runningSum = arr => {
 
   // Your code here
   // Initializes an empty arr to store the running sum.
@@ -41,7 +41,7 @@ regardless of the input array' size.
 };
 
 const arr = [1, 2, 3, 4];
-console.log(runningSum(arr)); */
+console.log(runningSum(arr));
 
 // [ 1, 3, 6, 10 ]
 
@@ -88,8 +88,42 @@ The function uses only a few local var count & the loop index.
 const smallerThanCurr = arr => {
 
   // Your code here
+  // sort a copy of the orig arr
+  const sortedArr = [...arr].sort((a, b) => a - b);
 
+  // initialization of a map to sort counts.
+  const countMap = new Map();
+
+  for (let i = 0; i < sortedArr.length; i++) {
+    // Store the count of smaller elements for each unique #.
+    if (!countMap.has(sortedArr[i])) {
+      countMap.set(sortedArr[i], i);
+    }
+  }
+  // result arr by mapping each element to its count.
+  return arr.map(num => countMap.get(num));
 };
+
+const arr = [8, 1, 2, 2, 3];
+console.log(smallerThanCurr(arr));
+
+// Output: => [ 4, 0, 1, 1, 3 ]
+
+/*
+Time Complexity: O(n log n)
+here sorting ste takes O(n log n) time.
+
+
+Space Complexity: O(n)
+
+*/
+
+
+
+
+
+
+
 
 const twoSum = (arr, target) => {
 
@@ -107,4 +141,4 @@ const shuffle = (arr) => {
 };
 
 
-module.exports = [findMinimum,runningSum,evenNumOfChars, smallerThanCurr, twoSum, secondLargest, shuffle];
+module.exports = [findMinimum, runningSum, evenNumOfChars, smallerThanCurr, twoSum, secondLargest, shuffle];
