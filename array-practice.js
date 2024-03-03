@@ -1,4 +1,4 @@
-const findMinimum = arr => {
+/* const findMinimum = arr => {
 
   // Your code here
   let min = arr[0]; // O(1)
@@ -13,7 +13,7 @@ const findMinimum = arr => {
 };
 
 const arr = [7, 5, 2, 3, 4, 1];
-console.log(findMinimum(arr));
+console.log(findMinimum(arr)); */
 // Output => 1.
 /*
 Time complexity: O(n) The function iterates through the array once to find the
@@ -23,7 +23,7 @@ regardless of the input array' size.
  */
 
 
-const runningSum = arr => {
+/* const runningSum = arr => {
 
   // Your code here
   // Initializes an empty arr to store the running sum.
@@ -41,7 +41,7 @@ const runningSum = arr => {
 };
 
 const arr = [1, 2, 3, 4];
-console.log(runningSum(arr));
+console.log(runningSum(arr)); */
 
 // [ 1, 3, 6, 10 ]
 
@@ -55,27 +55,35 @@ arr' size, therefore the space complexity is also linear.
 */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const evenNumOfChars = arr => {
 
   // Your code here
+  // Initialization the count of strings with even characters
+  let count = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    // checking if the length of the current str is even
+    if (arr[i].length % 2 === 0) {
+      // increment the count if the len is even.
+      count++;
+    }
+  }
+  return count;
 };
+
+const arr = ['ab', 'abc', 'a', 'abcd'];
+console.log(evenNumOfChars(arr));
+// Output: => 2
+/*
+Time complexity: O(n) Linear time.
+The loop iterates through the entire arr, checking the len of each str.
+the len check is a constant time oper.
+
+Space complexity: O(1) constant time
+The function uses only a few local var count & the loop index.
+
+*/
+
 
 const smallerThanCurr = arr => {
 
@@ -99,4 +107,4 @@ const shuffle = (arr) => {
 };
 
 
-module.exports = [runningSum, evenNumOfChars, smallerThanCurr, twoSum, secondLargest, shuffle];
+module.exports = [findMinimum,runningSum,evenNumOfChars, smallerThanCurr, twoSum, secondLargest, shuffle];
