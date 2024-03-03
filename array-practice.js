@@ -1,4 +1,4 @@
-const findMinimum = arr => {
+ const findMinimum = arr => {
 
   // Your code here
   let min = arr[0]; // O(1)
@@ -84,7 +84,6 @@ The function uses only a few local var count & the loop index.
 
 */
 
-
 const smallerThanCurr = arr => {
 
   // Your code here
@@ -159,15 +158,47 @@ the function sets "numSet" to store seen #'s, the size of the set is at most the
 */
 
 
-
-
-
-
-
 const secondLargest = arr => {
 
   // Your code here
+  if (arr.length < 2) {
+    // not enough elements to find a 2nd largest
+    return null;
+  }
+  // initialize the largest to - infinity
+  let largest = -Infinity;
+  //initialize 2nd largest to - infinity
+  let secondLargest = -Infinity;
+
+  for (const num of arr) {
+    // Update largest and secondLargest based on the current number
+    if (num > largest) {
+      secondLargest = largest;
+      largest = num;
+    } else if (num > secondLargest && num !== largest) {
+      // avoid duplicates
+      secondLargest = num;
+    }
+  }
+  return secondLargest;
 };
+
+const arr = [4, 2, 3, 6, 8];
+console.log(secondLargest(arr));
+//Output: => 6
+
+/*
+Time complexity: O(n) Linear time.
+Space complexity: O(1) Constant time.
+
+*/
+
+
+
+
+
+
+
 
 const shuffle = (arr) => {
 
