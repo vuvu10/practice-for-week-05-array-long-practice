@@ -119,16 +119,50 @@ Space Complexity: O(n)
 */
 
 
-
-
-
-
-
-
 const twoSum = (arr, target) => {
 
   // Your code here
+  //set to store seen #'s
+  const numSet = new Set();
+
+  for (let i = 0; i < arr.length; i++) {
+    // calculate the complement for the current #.
+    const complement = target - arr[i];
+    if (numSet.has(complement)) {
+      // If the complement is already in the set, we found a pair.
+      return true;
+    }
+
+    // add the current # to the set.
+    numSet.add(arr[i])
+  }
+  // no valid pair found.
+  return false;
 };
+
+
+const arr = [4, 2, 3, 6, 9];
+console.log(twoSum(arr, 10));
+
+const arr2 = [4, 2, 3, 6, 9];
+console.log(twoSum(arr2, 16));
+//Output:
+
+/*
+Time Complexity: O(n)
+The loop iterates through the entire arr once. Each set operation takes constant time.
+
+Space complexity: O(n)
+the function sets "numSet" to store seen #'s, the size of the set is at most the
+# of unique elements in the arr.
+
+*/
+
+
+
+
+
+
 
 const secondLargest = arr => {
 
